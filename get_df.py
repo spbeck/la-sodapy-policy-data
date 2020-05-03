@@ -5,7 +5,7 @@ client = Socrata("usc.data.socrata.com",None)
 dset = "u7m9-48qx"
 
 def get_df(data): # Get a pandas dataframe from a generator object
-   "Request the entire dataset through Socrata API generator object"
+    "Request the entire dataset through Socrata API generator object"
     dl = []
     [dl.append(d) for d in data]
     return pd.DataFrame(dl)
@@ -18,6 +18,6 @@ if __name__=="__main__":
     data_gen = client.get_all(dset,where=w_query)
     df = get_df(data_gen)
     print(df.head)
-    df.to_csv('USC-neighborhood-data-'+w_querty+'.csv')
+    df.to_csv('USC-neighborhood-data-'+w_query+'.csv')
     print('Dataframe exported to csv!')
 
